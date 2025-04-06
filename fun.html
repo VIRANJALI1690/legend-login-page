@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <style> 
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .outer {  
+      background-color: white;
+      padding: 30px 40px;
+      border: 2px solid #333; 
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      width: 400px;
+    } 
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 25px;
+    }
+
+    p { 
+      margin-left: 80px;
+      margin-bottom: 5px;
+      color: #444;
+      font-weight: bold;
+    } 
+
+    .in { 
+      margin-left: 80px; 
+      padding: 10px;
+      width: 60%;
+      border-radius: 5px;
+      border: 2px solid #ccc;
+      font-size: 14px;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    } 
+
+    .in:focus {
+      border-color: #2193b0;
+      outline: none;
+    }
+
+    #bt { 
+      display: block;
+      margin: 20px auto 0 auto;
+      padding: 10px 20px;
+      background-color: #2193b0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      font-size: 14px;
+      position: relative;
+    } 
+
+    #bt:hover { 
+      background: #0c7a9c; 
+      font-size: 13px; 
+      cursor: pointer; 
+      color: white; 
+    } 
+  </style>  
+</head> 
+<body> 
+  <div class="outer"> 
+    <h1 style="text-align:center">Legend form</h1> 
+    <p>Enter Id</p> 
+    <input class="in" type="text" placeholder="Enter id" id="a"/> 
+    <p>Enter Confirm Pass</p> 
+    <input class="in" type="password" placeholder="Enter password" id="b"/> 
+    <br> 
+    <input type="submit" onmouseenter="fa()" id="bt" /> 
+  </div> 
+
+  <script> 
+    let flag = 1;
+    const bt = document.getElementById("bt");
+
+    function fa() { 
+      let id = document.getElementById("a").value;
+      let pass = document.getElementById("b").value;
+
+      if (id === "" || pass === "") { 
+        f(); 
+        document.getElementById("a").style.border = "3px solid red"; 
+        document.getElementById("b").style.border = "3px solid red"; 
+        bt.value = "Pahila data tak"; 
+      } else { 
+        document.getElementById("a").style.border = "3px solid green"; 
+        document.getElementById("b").style.border = "3px solid green"; 
+        bt.value = "Ha thik ahe ata"; 
+        bt.style.left = "0px"; 
+        alert("waaaa"); // Only show when valid!
+      } 
+    }
+
+    function f() { 
+      if (flag === 1) { 
+        bt.style.left = "20px"; 
+        flag = 2; 
+      } else if (flag === 2) { 
+        bt.style.left = "-20px"; 
+        flag = 1; 
+      } 
+    } 
+  </script>
+</body> 
+</html>
